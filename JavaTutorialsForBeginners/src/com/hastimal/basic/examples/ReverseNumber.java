@@ -27,7 +27,7 @@ public class ReverseNumber {
 			num =num/10;
 		}
 
-		System.out.println("Reverse of input number is: "+reversenum);
+		System.out.println("Reverse of input-number is: "+reversenum);
 
 
 	}
