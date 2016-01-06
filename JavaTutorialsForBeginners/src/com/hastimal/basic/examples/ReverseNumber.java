@@ -32,4 +32,8 @@ public class ReverseNumber {
 
 	}
 }
-
+/**
+ * Enter a number which you wants to reverse
+12345
+Reverse of input number is: 54321
+*/
