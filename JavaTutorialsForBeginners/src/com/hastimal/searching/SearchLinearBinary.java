@@ -22,18 +22,27 @@ public class SearchLinearBinary {
 		}
 		System.out.println("Enter number to be searched:");
 		int item = input.nextInt(); 
+		
+		System.out.println("###BINARY SEARCH BY JAVA DEFAULT###");
+		System.out.println(Arrays.binarySearch(array, item));
+		
+		
+		System.out.println("###LINEAR SEARCH###");
 		LinearSearch(array,item);
 		//For binary search
-
+				
 		int first=0, last=array.length-1;
+		System.out.println("###BinarySearchNonRecursive SEARCH###");
+		BinarySearchNonRecursive(array,item,first,last);
 		Arrays.sort(array);
 		System.out.print("Sorted are ");
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(" "+array[i]);
 		}
-
+		System.out.println();
+		System.out.println("###BinarySearch SEARCH###");
 		BinarySearch(array,item,first,last);
-		BinarySearchNonRecursive(array,item,first,last);
+		
 
 	}
 
@@ -132,8 +141,10 @@ public class SearchLinearBinary {
 	 * @param num
 	 */
 	private static void LinearSearch(int[] array, int item) {
+		boolean flag =false;
 		for (int i = 0; i < array.length; i++) {
 			if (array[i]==item) {
+				flag =true;
 				System.out.println(item+" is present at location "+(i+1));
 				/*Item is found so to stop the search and to come out of the 
 				 * loop use break statement.*/
@@ -141,9 +152,8 @@ public class SearchLinearBinary {
 
 			}
 		}
-
-		System.out.println(item + " doesn't exist in array.");
-
+		if (flag==false)
+			System.out.println(item + " doesn't exist in array.");	
 	}
 
 }
