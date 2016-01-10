@@ -24,26 +24,26 @@ public class SearchLinearBinary {
 		int item = input.nextInt(); 
 		
 		System.out.println("###BINARY SEARCH BY JAVA DEFAULT###");
-		System.out.println(Arrays.binarySearch(array, item));
-		
+		System.out.println(item + " found at location " + (Arrays.binarySearch(array, item) + 1) + ".");
 		
 		System.out.println("###LINEAR SEARCH###");
 		LinearSearch(array,item);
 		//For binary search
 				
 		int first=0, last=array.length-1;
-		System.out.println("###BinarySearchNonRecursive SEARCH###");
-		BinarySearchNonRecursive(array,item,first,last);
+		
 		Arrays.sort(array);
 		System.out.print("Sorted are ");
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(" "+array[i]);
 		}
 		System.out.println();
+		System.out.println("###BinarySearchNonRecursive SEARCH###");
+		BinarySearchNonRecursive(array,item,first,last);
+		System.out.println();
 		System.out.println("###BinarySearch SEARCH###");
-		BinarySearch(array,item,first,last);
+		BinarySearchRecursive(array,item,first,last);
 		
-
 	}
 
 	/**
@@ -72,9 +72,6 @@ public class SearchLinearBinary {
 		}
 		if ( first > last )
 			System.out.println(item + " is not found.\n");
-
-
-
 	}
 
 	/**
@@ -84,7 +81,7 @@ public class SearchLinearBinary {
 	 * @param last
 	 * @return 
 	 */
-	private static int BinarySearch(int[] array, int item, int first, int last) {
+	private static int BinarySearchRecursive(int[] array, int item, int first, int last) {
 		// TODO Auto-generated method stub
 		// test if array is empty
 		if (first > last){
@@ -100,14 +97,14 @@ public class SearchLinearBinary {
 			// three-way comparison
 			else if (array[mid] > item)
 				// key is in lower subset
-				BinarySearch(array, item, first, mid - 1);
+				return BinarySearchRecursive(array, item, first, mid - 1);
 			else if (array[mid] < item)
 				// key is in upper subset
-				BinarySearch(array, item, mid + 1, last);
+				return BinarySearchRecursive(array, item, mid + 1, last);
 
 		}
 		return 0;
-
+		
 	}
 	/**
 	 * int binary_search(int A[], int key, int imin, int imax)
